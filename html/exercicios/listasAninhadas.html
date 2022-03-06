@@ -1,0 +1,59 @@
+<!--listas aninhadas-->
+<h1>Projeto</h1>
+<ul class="tree">
+    <li parent show="true">
+        Backend
+        <ul>
+            <li parent show="true">App
+            <ul>
+                <li>produto.js</li>
+                <li>usuario.js</li>
+                <li>venda.js</li>
+            </ul>
+            </li>
+            <li parent show="true">
+                config
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li parent show="true">
+        Frontend
+        <ul>
+            <li parent show="true">
+                public
+                <ul>
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    document.querySelectorAll('[parent]').forEach(
+        element => {
+            element.onclick = function(e){
+                e.stopPropagation()
+                const children = element.children
+                if(element.getAttribute('show')==="true"){
+                    for(let i=0; i < children.length; i++){
+                        children[i].style.display = 'none'
+                    }
+                    element.setAttribute('show', "false")
+                }else{
+                    for(let i=0; i < children.length; i++){
+                        children[i].style.display = 'block'
+                    }
+                    element.setAttribute('show', "true")
+                }
+            }
+        }
+    )
+</script>
