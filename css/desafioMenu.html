@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            background-color: rgb(190, 190, 190);
+        }
+
+        header {
+            padding: 5px 15px;
+            background-color: rgb(26, 48, 66);
+            border-bottom: 5px solid rgb(143, 128, 243);
+            color: #fff;
+            font-family: Oswald, sans-serif;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            box-sizing: content-box;
+        }
+
+        /* Logo */
+        .logo {
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+        .logo a > img {
+            height: 100%;
+        }
+
+        /* Menu de Navegação*/
+        .menu ul {
+            list-style: none;
+        }
+
+        .menu ul>li {
+            display: inline-block;
+            margin: 0px 5px;
+        }
+
+        .menu a {
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        a.active,
+        .menu a:hover {
+            color: #000;
+            background-color: rgb(92, 168, 230);
+        }
+
+        .menu-toggle {
+            padding: 5px 10px;
+            display: none;
+            margin-left: auto;
+            background-color: rgb(54, 54, 54);
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        /* Autenticação */
+        .autenticacao {
+            margin-left: auto;
+        }
+
+        .autenticacao>a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0px 10px;
+        }
+    
+        .botao {
+            display: inline-block;
+            text-align: center;
+            width: 80px;
+            padding: 10px;
+            border-radius: 120px;
+        }
+
+        .destaque {
+            background-color: rgb(255, 56, 56);
+        }
+
+        /* Media Queries */
+        @media (max-width: 899px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
+        @media (max-width: 599px) {
+            .menu {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        window.addEventListener('hashchange', function (e) {
+            const oldURL = e.oldURL.split("#")[1]
+            const newURL = e.newURL.split("#")[1]
+            const newLink = document.querySelector(`.menu a[href="#${newURL}"]`)
+            const oldLink = document.querySelector(`.menu a[href="#${oldURL}"]`)
+
+            newLink.classList.add("active")
+            oldLink.classList.remove("active")
+        })
+    </script>
+</body>
+
+</html>

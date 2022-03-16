@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Especificidade CSS</title>
+    <style>
+        /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+        /* 
+            Em linhas gerais....
+            1 - regra com !importante
+            2 - seletores mais específicos
+            3 - ultim regra processada (empate)
+
+        */
+
+        p.observacao {
+            padding: 5px 60px;
+            background: linear-gradient(to right, red, yellow)
+        }
+
+        .observacao {
+            background-color: #5f5 !important;/* important não faz efeito, pois trata-se de propriedades diferentes(background !+ background-color) */
+            border: dashed 5px;
+            padding: 200px!important; /* important funciona. Mesmo o seletor acima tendo prioridade. O importante "burla a prioridade das propriedades iguais" */
+            font-size: 40px;
+        }
+
+        p {
+            background-color: #aaa;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <p class='observacao'>Olha essa observação!!!!</p>
+</body>
+
+</html>
