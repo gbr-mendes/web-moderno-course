@@ -1,0 +1,58 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2em;
+}
+.score-container{
+    justify-self: end;
+}
+.bird {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 15%;
+    left: 50px;
+    bottom: 50%;
+}
+.bird img{
+    position: relative;
+    height: 100%;
+}
+div[wm-flappy] {
+    height: 100vh;
+    width: 100vw;
+    background-color: #0099CC;
+    overflow: hidden;
+}
+div.game-area {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    height: 80%;
+}
+div.obstacle {
+    position: absolute;
+    right: -130px;
+    height: 100%;
+    margin: 0;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+div.obstacle-up, div.obstacle-down {
+    background-color: green;
+    width: 100px;
+}
+
+div.obstacle-down{
+    justify-self: flex-end;
+}
+div.ground {
+    border-top: 5px solid greenyellow;
+    background-color: chocolate;
+    height: 20%;
+}
