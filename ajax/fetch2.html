@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário Via Fetch</h1>
+    <form name="usuarioForm" action="form" method="post">
+        <input type="text" name="nome" placeholder="Nome..." />
+        <input type="text" name="sobrenome" placeholder="Sobrenome..." />
+        <button>Salvar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault()
+            const form = e.target
+            const data = new FormData(form)
+
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(data),
+            }
+            fetch(form.action, options)
+            .then(resp => resp.json())
+            .then(json => {
+                const result = document.getElementById('resultado')
+                const resp = document.createTextNode(`Nome: ${json.nome} Sobrenome: ${json.sobrenome}`)
+                result.appendChild(resp)
+            })
+            .catch(e => {
+                const result = document.getElementById('resultado')
+                result.innerHTML = e
+            })
+        }
+    </script>
+</body>

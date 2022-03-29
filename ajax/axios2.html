@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Axios #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/axios.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Axios Get/Post</h1>
+    <div id="get"></div>
+    <div id="post"></div>
+
+    <script>
+        function showResult(id, data) {
+            const text = JSON.stringify(data)
+            document.getElementById(id).innerHTML = text
+        }
+        axios.get('parOuImpar',{
+            params: {
+                number: 5
+            }
+        }).then(resp => showResult('get', resp.data))
+        
+    </script>
+</body>

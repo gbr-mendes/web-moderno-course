@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        function createTable(states) {
+            const lines = states.map(state => {
+                const tdId = document.createElement('td')
+                tdId.innerHTML = state.id
+
+                const tdName = document.createElement('td')
+                tdName.innerHTML = state.nome
+
+                const tdAcronym = document.createElement('td')
+                tdAcronym.innerHTML = state.sigla
+
+                const tr = document.createElement('tr')
+                tr.appendChild(tdId)
+                tr.appendChild(tdName)
+                tr.appendChild(tdAcronym)
+                return tr
+            })
+            const table = document.createElement('table')
+
+            lines.forEach(line => {
+                table.appendChild(line)
+            });
+            document.body.appendChild(table)
+        }
+        function ajax(config) {
+            const xhr = new XMLHttpRequest()
+            xhr.open(config.method, config.url, true)
+
+            xhr.onload = e => {
+                if (xhr.status === 200) {
+                    config.success(xhr.response)
+                } else if (xhr.status >= 400) {
+                    config.error({
+                        code: xhr.status,
+                        text: xhr.statusText
+                    })
+                }
+            }
+            xhr.send()
+        }
+
+        ajax({
+            method: "GET",
+            url: "dados/estados.json",
+            success(response) {
+                const states = JSON.parse(response)
+                createTable(states)
+            },
+            error(e) {
+                const msg = document.createTextNode(`${e.code}: ${e.text}`)
+                document.body.appendChild(msg)
+            }
+        })
+    </script>
+</body>
