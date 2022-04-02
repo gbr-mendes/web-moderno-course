@@ -1,0 +1,2 @@
+db.estados.update({sigla: "SP"},{$set: {populacao: valor}}) // seta o valor ao atributo sobrescrevendo tudo que existe
+db.estados.find({sigla: "AL"}, {$push: {cidades: {nome: "Maceio"}}})

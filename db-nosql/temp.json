@@ -1,0 +1,51 @@
+[
+    {
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regia" : "Norte"
+    },
+    {
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 3322000
+    },
+    {
+        "nome" : "Rio de Janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Sudeste",
+        "cidades" : [
+            {
+                "nome" : "Niterói",
+                "area" : 133.9,
+                "populacao" : 487562
+            }
+        ]
+    },
+    {
+        "nome" : "São Paulo",
+        "sigla" : "SP",
+        "regiao" : "Sudeste",
+        "cidades" : [
+            {
+                "_id" : ObjectId(),
+                "nome" : "Campinas",
+                "area" : 795.7,
+                "prefeito" : "Jonas Donizete",
+                "populacao" : 1081000
+            },
+            {
+                "_id" : ObjectId(),
+                "nome" : "Guarulhos",
+                "populacao" : 1325000
+            },
+            {
+                "_id" : ObjectId(),
+                "nome" : "Sorocaba",
+                "distanciaCapital" : 87,
+                "populacao" : 644919
+            }
+        ]
+    }
+    
+]

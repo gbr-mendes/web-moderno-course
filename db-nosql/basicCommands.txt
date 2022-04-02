@@ -1,0 +1,21 @@
+show dbs "lista as bases de dados"
+use dbname "usado para mudar para a base de dados com o nome passado, mesmo que a base ainda não exista, mas só será definitivamente criada se dados forem armazenados"
+db.createCollection("nome_colection") "usado para criar coleção na base de dados selecionada. Uma coleção é equivalente a uma tabela em um banco relacional"
+show collections "lista as coleções da base selecionada"
+db.NomeCollection.drop() "exclui coleção"
+db.collection_name.insert(json or js object) "usado para inserir dados na coleção informada. Obs: om metodo save também pose ser usado dessa forma"
+db.collection_name.find() "retorna os registros da coleção informada"
+db.colection_name.find().pretty() "retorna os registros da collection formatados visualmente"
+db.collectionName.findOne() "retorna o primeiro registro da coleção informada"
+
+Consultas:
+db.collectionName.find({chave: valor}) "recebe um objeto com a chave e o valor a ser buscado nos registros"
+db.collectionName.find({$or: [{chave: valor}, {chave: valor}]}) "recebe um objeto que tem como primeiro atributo uma operação OU  e como vvalor
+uma lista de objetos com as chaves a serem filtradas nos registros"
+db.collectionName.find({chave: {$exists: true}}) "retorna os registros que contem a chave informada"
+db.collectionName.find().skip(1).limit(2) "retorna dois registros que evitando o primeiro registro(skip),
+logo, retornam o segundo e o terceiro registro"
+db.collectionName.count() "retorna a quantidade de registrosn na coleção informada"
+db.collectionName.find({chave: valor}, {attr: 1, attr2:0}) "Realiza uma busca por registros que contenham a chave e valor do objeto passado como primeiro parametro,
+porém não retorna todos os atributos no objeto de resposta, e sim, apenas os marcados como attr: 1"
+
